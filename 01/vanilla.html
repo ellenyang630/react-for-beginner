@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+  const root = document.getElementById("root");
+  const h3 = React.createElement("h3", {id: "sexy-h3", style: {color: "red"}, onMouseEnter: () => console.log("mouse enter")}, "Hello, I'm a h3");
+
+  const counterBtn = React.createElement("button", { onClick: () => console.log("i'm clicked") }, "click me");
+  const counterContainer = React.createElement("div", null, [h3, counterBtn]);
+
+  ReactDOM.render(counterContainer, root);
+</script>
+</html>

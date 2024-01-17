@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+<script type="text/babel">
+  // 데이터가 변하는 걸 ui에 적용해서 리렌더링 되게 하는 방법
+  // 하지만 좋은 방식은 아님. 렌더해주는 걸 잊으면 안되기 때문에 ..
+  // 더 좋은 방법은 index3에서!!
+  const root = document.getElementById("root");
+  let counter = 0;
+  function countUp() {
+    counter = counter + 1;
+    render();
+  }
+  function render() {
+    ReactDOM.render(<CounterContainer />, root);  
+  }
+  const CounterContainer = () => (
+    <div>
+      <h3>Total clicked: {counter}</h3>
+      <button onClick={countUp}>click me</button>
+    </div>
+  );
+  render();
+</script>
+</html>
