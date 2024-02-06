@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+<script type="text/babel">
+  //  #3.4 강의
+  
+
+  // state를 바꾸는 2가지 방법 - 1. setState를 이용해서 원하는 값 부여, 2. 이전값을 바탕으로 값 설정 (counter + 1)
+
+  const root = document.getElementById("root");
+  function CounterContainer() {
+    // 보통 펑션네임은, set{변수명}형태로 함
+    const [counter, setCounter] = React.useState(0);
+    // setCounter가 있어야 하는 이유 (counter 값을 변경해주는 함수이기 때문에 )
+    const onClick = () => {
+      setCounter(counter + 1);
+    };
+
+    // 데이터가 바뀔때마다 컴포넌트를 리렌더링하고 UI를 리프레시함! 콘솔로그 찍어서 확인
+    // state가 바뀌면 리렌더링이 일어난다.
+    console.log("rendered");
+    console.log(counter);
+    return (
+      <div>
+        <h3>Total clicked: {counter}</h3>
+        <button onClick={onClick}>click me</button>
+      </div>
+    );
+  }
+  ReactDOM.render(<CounterContainer />, root);  
+</script>
+</html>
